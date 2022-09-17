@@ -1,0 +1,99 @@
+[
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "hikari",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hikari",
+        "description": "hikari",
+        "detail": "hikari",
+        "documentation": {}
+    },
+    {
+        "label": "lightbulb",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "lightbulb",
+        "description": "lightbulb",
+        "detail": "lightbulb",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "plugin",
+        "importPath": "plugins.spinner_plugin.spinner_plugin",
+        "description": "plugins.spinner_plugin.spinner_plugin",
+        "isExtraImport": true,
+        "detail": "plugins.spinner_plugin.spinner_plugin",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "Spinner",
+        "kind": 6,
+        "importPath": "src.plugins.spinner_plugin.spinner.spinner",
+        "description": "src.plugins.spinner_plugin.spinner.spinner",
+        "peekOfCode": "class Spinner:\n    def __init__(self):\n        self.storage = {\"default\": []}\n        self.current_basket = \"default\"\n    def add(self, item):\n        self.storage[self.current_basket].append(item)\n    def remove(self, item):\n        self.storage[self.current_basket].remove(item)\n    def spin(self):\n        random_index = random.randint(-100000, 100000) % len(self.storage[self.current_basket])",
+        "detail": "src.plugins.spinner_plugin.spinner.spinner",
+        "documentation": {}
+    },
+    {
+        "label": "load",
+        "kind": 2,
+        "importPath": "src.plugins.spinner_plugin.spinner_plugin",
+        "description": "src.plugins.spinner_plugin.spinner_plugin",
+        "peekOfCode": "def load(bot: lightbulb.BotApp):\n    bot.add_plugin(plugin)\ndef unload(bot: lightbulb.BotApp):\n    bot.remove_plugin(plugin)\n# -- COMMANDS -- \n# ADD\n@plugin.command\n@lightbulb.option(\"item\", \"add an item to the current basket\", type=str)\n@lightbulb.command(\"add\", \"add item to basket\")\n@lightbulb.implements(lightbulb.SlashCommand)",
+        "detail": "src.plugins.spinner_plugin.spinner_plugin",
+        "documentation": {}
+    },
+    {
+        "label": "unload",
+        "kind": 2,
+        "importPath": "src.plugins.spinner_plugin.spinner_plugin",
+        "description": "src.plugins.spinner_plugin.spinner_plugin",
+        "peekOfCode": "def unload(bot: lightbulb.BotApp):\n    bot.remove_plugin(plugin)\n# -- COMMANDS -- \n# ADD\n@plugin.command\n@lightbulb.option(\"item\", \"add an item to the current basket\", type=str)\n@lightbulb.command(\"add\", \"add item to basket\")\n@lightbulb.implements(lightbulb.SlashCommand)\nasync def spinner_add(ctx: lightbulb.Context):\n    item = ctx.options.item",
+        "detail": "src.plugins.spinner_plugin.spinner_plugin",
+        "documentation": {}
+    },
+    {
+        "label": "plugin",
+        "kind": 5,
+        "importPath": "src.plugins.spinner_plugin.spinner_plugin",
+        "description": "src.plugins.spinner_plugin.spinner_plugin",
+        "peekOfCode": "plugin = lightbulb.Plugin(\"Spinner\")\nspinner: Spinner = Spinner()\ndef load(bot: lightbulb.BotApp):\n    bot.add_plugin(plugin)\ndef unload(bot: lightbulb.BotApp):\n    bot.remove_plugin(plugin)\n# -- COMMANDS -- \n# ADD\n@plugin.command\n@lightbulb.option(\"item\", \"add an item to the current basket\", type=str)",
+        "detail": "src.plugins.spinner_plugin.spinner_plugin",
+        "documentation": {}
+    },
+    {
+        "label": "bot",
+        "kind": 5,
+        "importPath": "src.main",
+        "description": "src.main",
+        "peekOfCode": "bot = lightbulb.BotApp(token=os.getenv(\"DISCORD_TOKEN\"), default_enabled_guilds=(837504788391919677))\n@bot.listen(hikari.StartedEvent)\nasync def on_started(event):    \n    print(\"Bot is ready!\")\nbot.add_plugin(plugin)\nbot.run()",
+        "detail": "src.main",
+        "documentation": {}
+    }
+]
