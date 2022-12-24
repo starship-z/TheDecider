@@ -2,6 +2,7 @@ import os
 import hikari 
 import lightbulb
 from plugins.spinner_plugin.spinner_plugin import plugin
+from plugins.dreidel_plugin.dreidel_core import dreidel_plugin
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -13,4 +14,6 @@ async def on_started(event):
     print("Bot is ready!")
 
 bot.add_plugin(plugin)
+bot.add_plugin(dreidel_plugin)
+
 bot.run()
